@@ -58,24 +58,29 @@
 				if(!is_file($output)){
 					file_put_contents($output, json_encode($data,true));
 				}
-			}
-			// read the package object stored from file
-			$json = file_get_contents($output);
-			//convert the object to array
-			$package_array = json_decode($json,true);
-			// sort the package array by key in alphabetic order 
-			ksort($package_array);
-			?>
-			<div class="container">
-				<?php
-				foreach($package_array as $key => $value) {
-					if(empty($char) || ($char != $key[0])){
-						$char = $key[0];
-						echo '<h1>'. strtoupper($char).'</h1>';
-					}
-				    echo '<a href="details.php?key='.urlencode($key).'">'.$key.'</a></br>';
-				  }
+				// read the package object stored from file
+				$json = file_get_contents($output);
+				//convert the object to array
+				$package_array = json_decode($json,true);
+				// sort the package array by key in alphabetic order 
+				ksort($package_array);
 				?>
-			</div>
+				<div class="container">
+					<?php
+					foreach($package_array as $key => $value) {
+						if(empty($char) || ($char != $key[0])){
+							$char = $key[0];
+							echo '<h1>'. strtoupper($char).'</h1>';
+						}
+					    echo '<a href="details.php?key='.urlencode($key).'">'.$key.'</a></br>';
+					  }
+					?>
+				</div>
+				<?php
+			}
+			else {
+				echo "No Status file exists, Please check the directory";
+			}
+			?>
 	</body>
 </html>
