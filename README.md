@@ -1,6 +1,6 @@
 # pre-assignment
 
-Description: Pre-assignment for junior developer positions provided by Reactor Company. That exposes some key information about packages from particular directory which is here taken from mock data.
+Description: Pre-assignment for junior developer positions provided by Reactor Company. That exposes some key information about packages from particular directory which is here taken from mock data. Package Data are extracted and stored in file automatically created by code.
 
 Procedure:
 1. Make sure the xampp is installed
