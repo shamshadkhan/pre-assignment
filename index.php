@@ -51,7 +51,9 @@ if(file_exists($dir)){
 		}
 	}
 	// storing the package object in file
-	file_put_contents($output, json_encode($data,true));
+	if(!is_file($output)){
+		file_put_contents($output, json_encode($data,true));
+	}
 }
 // read the package object stored from file
 $json = file_get_contents($output);
